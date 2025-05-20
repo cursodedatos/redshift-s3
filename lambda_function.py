@@ -29,7 +29,7 @@ def lambda_handler(event, context):
     response = client.execute_statement(
         WorkgroupName=REDSHIFT_WORKGROUP,
         Database=REDSHIFT_DATABASE,
-        Sql=copy_sql
+        Sql=copy_sql,
         SecretArn= "arn:aws:secretsmanager:us-east-1:xxxxxx:secret:cred-redshift-xxxxx"
     )
     print("Carga iniciada. Statement ID:", response['Id'])         
